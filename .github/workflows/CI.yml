@@ -20,6 +20,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    needs: [prepare]
     steps:
       - uses: actions/checkout@v2
 
@@ -44,12 +45,12 @@ jobs:
         run: ./gradlew test
 
       - name: Lint
-        if: github.ref == 'refs/heads/master'
-        run: ./gradlew ktlintCheck --warning-mode fail
+        run: ./gradlew ktlintCheck
+        continue-on-error: false
 
       - name: Lint and Report
-        if: github.ref != 'refs/heads/master'
         run: ./gradlew ktlintCheck
+        continue-on-error: true
 
       - name: Setup Ruby
         if: github.ref != 'refs/heads/master'
