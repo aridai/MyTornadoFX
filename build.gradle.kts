@@ -29,7 +29,6 @@ allprojects {
 
     ktlint {
         outputColorName.set("RED")
-        ignoreFailures.set(true)
         disabledRules.set(listOf("import-ordering", "no-wildcard-imports"))
         reporters { reporter(ReporterType.CHECKSTYLE) }
     }
