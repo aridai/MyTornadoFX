@@ -1,12 +1,23 @@
 name: CI
 
 on:
-  pull_request:
-    branches: master
   push:
-    branches: master
+    branches: [ master ]
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
+  pull_request:
+    branches: [ master ]
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
+    steps:
+      - name: Prepare
+        run: ''
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -33,15 +44,21 @@ jobs:
         run: ./gradlew test
 
       - name: Lint
+        if: github.ref == 'refs/heads/master'
+        run: ./gradlew ktlintCheck --warning-mode fail
+
+      - name: Lint and Report
+        if: github.ref != 'refs/heads/master'
         run: ./gradlew ktlintCheck
 
       - name: Setup Ruby
+        if: github.ref != 'refs/heads/master'
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6'
-          architecture: 'x64'
 
       - name: Run Danger
+        if: github.ref != 'refs/heads/master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
