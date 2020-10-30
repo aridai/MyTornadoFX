@@ -12,14 +12,17 @@ application {
 
 runtime {
     options.set(listOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"))
-    modules.set(listOf(
-        "java.desktop",
-        "java.xml",
-        "jdk.unsupported",
-        "java.scripting",
-        "jdk.jfr",
-        "java.logging",
-        "java.prefs"))
+    modules.set(
+        listOf(
+            "java.desktop",
+            "java.xml",
+            "jdk.unsupported",
+            "java.scripting",
+            "jdk.jfr",
+            "java.logging",
+            "java.prefs"
+        )
+    )
 
     jpackage {
         when {
