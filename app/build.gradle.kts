@@ -6,7 +6,7 @@ plugins {
 }
 
 application {
-    mainClassName = "${Project.applicationId}.MainKt"
+    mainClass.set("${Project.applicationId}.MainKt")
     applicationName = Project.applicationName
 }
 
