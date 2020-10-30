@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
-    id("org.openjfx.javafxplugin") version "0.0.8"
-    id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
-    id("com.github.ben-manes.versions") version "0.28.0"
+    id("org.openjfx.javafxplugin") version "0.0.9"
+    id("org.jlleitschuh.gradle.ktlint") version "9.4.1"
+    id("com.github.ben-manes.versions") version "0.33.0"
 }
 
 buildscript {
@@ -45,9 +45,9 @@ subprojects {
     }
 
     tasks.withType<KotlinCompile> {
-        sourceCompatibility = JavaVersion.VERSION_13.toString()
-        targetCompatibility = JavaVersion.VERSION_13.toString()
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_13.toString()
+        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+        targetCompatibility = JavaVersion.VERSION_1_8.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 

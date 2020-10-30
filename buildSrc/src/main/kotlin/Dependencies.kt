@@ -6,7 +6,7 @@ object Dependencies {
 
         //  https://mvnrepository.com/artifact/org.jetbrains.kotlinx
         object Coroutines {
-            private const val version = "1.3.5"
+            private const val version = "1.4.0"
 
             //  https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
             const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
@@ -43,11 +43,11 @@ object Dependencies {
     }
 
     // https://mvnrepository.com/artifact/org.controlsfx/controlsfx
-    const val controlsFx = "org.controlsfx:controlsfx:11.0.1"
+    const val controlsFx = "org.controlsfx:controlsfx:11.0.2"
 
     //  https://mvnrepository.com/artifact/junit/junit
     const val junit = "junit:junit:4.13"
 
     // https://mvnrepository.com/artifact/io.mockk/mockk
-    const val mockK = "io.mockk:mockk:1.9.3"
+    const val mockK = "io.mockk:mockk:1.10.2"
 }
